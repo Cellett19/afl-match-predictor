@@ -30,12 +30,20 @@ This project is being developed as part of my software engineering portfolio whi
 
 ### Visualisations
 
+- Competition Home Advamtage
+![Competition Home Advantage](docs/graphs/winning_percentage_by_home_and_away_teams_(2000-2023).png)
 - Team win percentage
+![Team Win Percentage](docs/graphs/team_win_percentages_(2000-2023).png)
 - Home win percentage
+![Home Win Percentage](docs/graphs/teams_home_win_percentages_(2000-2023).png)
 - Away win percentage
+![Away Win Percentage](docs/graphs/teams_away_win_percentages_(2000-2023).png)
 - Average points scored
+![Average Points Scored](docs/graphs/average_points_per_team_(2000-2023).png)
 - Average points conceded
+![Average Points Conceded](docs/graphs/average_points_conceded_per_team_(2000-2023).png)
 - Average winning margin
+![Average Winning Margin](docs/graphs/average_winning_margin_per_team_(2000-2023).png)
 
 ---
 
@@ -67,8 +75,6 @@ afl-match-predictor/
 
 ### Refactoring
 
-- Refactor analysis into reusable Python functions
-- Improve project structure
 - Move analysis into separate modules
 
 ### Machine Learning
@@ -97,9 +103,11 @@ afl-match-predictor/
 - Completed exploratory data analysis
 - Created visualisations for team statistics
 
-### Next Version
+### Version 0.3
 - Refactor notebook into reusable functions
-- Begin feature engineering
+
+### Next Version
+- Move code into Python modules in VScode
 
 ---
 
