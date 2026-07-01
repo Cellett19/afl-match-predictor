@@ -27,6 +27,7 @@ This project is being developed as part of my software engineering portfolio whi
 - Calculate average points conceded
 - Calculate average winning margins
 - Analyse league-wide home ground advantage
+- Calculate average point differential
 
 ### Visualisations
 
@@ -44,6 +45,8 @@ This project is being developed as part of my software engineering portfolio whi
 ![Average Points Conceded](docs/graphs/average_points_conceded_per_team_(2000-2023).png)
 - Average winning margin
 ![Average Winning Margin](docs/graphs/average_winning_margin_per_team_(2000-2023).png)
+- Average point differential
+![Average Point Differential](docs/grapgs/teams_average_points_differential_(2000-2023).png)
 
 ---
 
