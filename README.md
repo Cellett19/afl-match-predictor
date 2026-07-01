@@ -46,7 +46,7 @@ This project is being developed as part of my software engineering portfolio whi
 - Average winning margin
 ![Average Winning Margin](docs/graphs/average_winning_margin_per_team_(2000-2023).png)
 - Average point differential
-![Average Point Differential](docs/grapgs/teams_average_points_differential_(2000-2023).png)
+![Average Point Differential](docs/graphs/teams_average_points_differential_(2000-2023).png)
 
 ---
 
