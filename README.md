@@ -31,7 +31,7 @@ This project is being developed as part of my software engineering portfolio whi
 
 ### Visualisations
 
-- Competition Home Advamtage
+- Competition Home Advantage
 ![Competition Home Advantage](docs/graphs/winning_percentage_by_home_and_away_teams_(2000-2023).png)
 - Team win percentage
 ![Team Win Percentage](docs/graphs/team_win_percentages_(2000-2023).png)
@@ -65,20 +65,21 @@ This project is being developed as part of my software engineering portfolio whi
 ## Project Structure
 
 afl-match-predictor/
-
+│
 ├── data/
-
+│
+├── docs/
+│   └── graphs/
+│
 ├── notebooks/
-
+│
+├── src/
+│   ├── stats.py
+│   └── visualisations.py
+│
 ├── README.md
 
----
-
 ## Future Development
-
-### Refactoring
-
-- Move analysis into separate modules
 
 ### Machine Learning
 
@@ -109,8 +110,11 @@ afl-match-predictor/
 ### Version 0.3
 - Refactor notebook into reusable functions
 
-### Next Version
+### Version 0.4
 - Move code into Python modules in VScode
+
+### Next Version
+- Begin feature engineering
 
 ---
 
