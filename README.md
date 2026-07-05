@@ -17,6 +17,17 @@ This project is being developed as part of my software engineering portfolio whi
 
 ## Current Features
 
+### Feauture Engineering
+
+- Generate machine learning features using only historical match data
+- Prevent data leakage by calculating statistics from matches played before each fixture
+- Create a training dataset containing:
+  - Home team
+  - Away team
+  - Home win percentage
+  - Away win percentage
+  - Match winner (target variable)
+
 ### Exploratory Data Analysis
 
 - Calculate games played for every AFL team
@@ -67,26 +78,29 @@ This project is being developed as part of my software engineering portfolio whi
 afl-match-predictor/
 │
 ├── data/
-│
 ├── docs/
 │   └── graphs/
-│
 ├── notebooks/
-│
-├── src/
+    ├── afl_analysis.ipynb
+├── source/
 │   ├── stats.py
-│   └── visualisations.py
-│
+│   ├── visualisation.py
+│   └── features.py
 ├── README.md
 
 ## Future Development
 
 ### Machine Learning
 
-- Feature engineering
-- Logistic Regression
-- Random Forest
-- Model evaluation
+- Expand feature engineering
+  - Average points scored
+  - Average points conceded
+  - Average point differential
+  - Recent team form
+  - Head-to-head statistics
+- Train baseline classification models
+- Evaluate model performance
+- Optimise features and hyperparameters
 
 ### Application
 
@@ -113,8 +127,13 @@ afl-match-predictor/
 ### Version 0.4
 - Move code into Python modules in VScode
 
+### Version 0.5
+- Built initial feature engineering pipeline
+- Generated historical match features without data leakage
+- Created first machine learning training dataset
+
 ### Next Version
-- Begin feature engineering
+- Expand feature engineering with additional team statistics
 
 ---
 

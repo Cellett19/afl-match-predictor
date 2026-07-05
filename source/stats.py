@@ -27,7 +27,7 @@ def calculate_team_wins(df):
         
     return team_wins
 
-# Function to calculate teams home win percentage
+# Function to calculate teams home win percentage, League wide
 def calculate_home_win_percentage(df):
     team_home_win_percentage = {}
 
@@ -40,7 +40,20 @@ def calculate_home_win_percentage(df):
         
     return team_home_win_percentage
 
-# Function to calculate teams away win percentage
+# Function to calculate teams home win percentage, individually
+def calculate_indv_home_win_percentage(df, team):
+
+    home_games = (df['Home_Team'] == team).sum()
+
+    if home_games == 0:
+        return 50.0
+    
+    home_wins = ((df['Home_Team'] == team) &
+                (df['Winner'] == 'Home')).sum()
+
+    return round(home_wins / home_games * 100, 2)
+
+# Function to calculate teams away win percentage, League wide
 def calculate_away_win_percentage(df):
     team_away_win_percentage = {}
 
@@ -52,6 +65,19 @@ def calculate_away_win_percentage(df):
         team_away_win_percentage[team] = round(away_wins / away_games * 100, 2)
 
     return team_away_win_percentage
+
+# Function to calculate teams away win percentage, individually
+def calculate_indv_away_win_percentage(df, team):
+    
+    away_games = (df['Away_Team'] == team).sum()
+
+    if away_games == 0:
+        return 50.0
+    
+    away_wins = ((df['Away_Team'] == team) &
+                 (df['Winner'] == 'Away')).sum()
+
+    return round(away_wins / away_games * 100, 2)
 
 # Function to calculate teams overall win percentage
 def calculate_team_win_percentage(team_wins, team_games):
