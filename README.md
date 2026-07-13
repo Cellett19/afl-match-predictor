@@ -19,14 +19,13 @@ This project is being developed as part of my software engineering portfolio whi
 
 ### Feauture Engineering
 
-- Generate machine learning features using only historical match data
-- Prevent data leakage by calculating statistics from matches played before each fixture
-- Create a training dataset containing:
-  - Home team
-  - Away team
-  - Home win percentage
-  - Away win percentage
-  - Match winner (target variable)
+- Generate historical features for every match
+- Calculate features using only previous matches (no data leakage)
+- Home and away win percentages
+- Average points scored
+- Average points conceded
+- Average point differential
+- Export machine learning feature dataset
 
 ### Exploratory Data Analysis
 
@@ -111,6 +110,17 @@ afl-match-predictor/
 
 ---
 
+## Machine Learning Pipeline
+
+1. Load historical AFL data
+2. Perform exploratory data analysis
+3. Generate historical features using previous matches only
+4. Train prediction models
+5. Evaluate model performance
+6. Predict future AFL matches
+
+---
+
 ## Development Log
 
 ### Version 0.1
@@ -132,8 +142,16 @@ afl-match-predictor/
 - Generated historical match features without data leakage
 - Created first machine learning training dataset
 
+### Version 0.6
+- Expanded feature engineering with
+    - Home & Away teams average points for
+    - Home & Away teams average points against
+    - Home & Away teams average points differentials
+
 ### Next Version
-- Expand feature engineering with additional team statistics
+- Add recent form features
+- Train baseline machine learning models
+- Evaluate prediction accuracy
 
 ---
 
