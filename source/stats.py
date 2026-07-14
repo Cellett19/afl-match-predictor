@@ -140,10 +140,6 @@ def calculate_indv_avg_points(df, team):
     return round(avg_points, 2)
     
 
-
-    
-
-
 # Function to calculate teams average winning margin
 def calculate_team_avg_winning_margin(df):
     team_avg_winning_margin = {}
@@ -274,3 +270,86 @@ def calculate_indv_avg_pt_differential(df, team):
     team_avg_pt_differential = round(all_margins.mean(), 2)
 
     return team_avg_pt_differential
+
+
+def calculate_indv_last5_win_percentage(df, team):
+    last5_games = ((df['Home_Team'] == team) |
+                    (df['Away_Team'] == team))
+
+    last5_games_df = df[last5_games].tail(5)
+
+    if last5_games_df.empty:
+        return 50.0
+    
+    last5_home_wins = ((last5_games_df['Home_Team'] == team) &
+                       (last5_games_df['Winner'] == 'Home')).sum()
+
+    last5_away_wins = ((last5_games_df['Away_Team'] == team) &
+                       (last5_games_df['Winner'] == 'Away')).sum()
+
+    last5_wins = last5_home_wins + last5_away_wins
+
+    return round(last5_wins / len(last5_games_df) * 100, 2)
+
+def calculate_indv_last5_avg_points_for(df, team):
+    last5_games = ((df['Home_Team'] == team) | 
+                   (df['Away_Team'] == team))
+
+    last5_games_df = df[last5_games].tail(5)
+
+    # First ever match, give average placeholder points
+    if last5_games_df.empty:
+        return 90.0
+    
+    points = 0
+
+    for _, row in last5_games_df.iterrows():
+        if row['Home_Team'] == team:
+            points += row['Home_Points']
+        else:
+            points += row['Away_Points']
+
+    avg_points = points / len(last5_games_df)
+    return round(avg_points, 2)
+
+def calculate_indv_last5_avg_points_conceded(df, team):
+    last5_games = ((df['Home_Team'] == team) | 
+                   (df['Away_Team'] == team))
+
+    last5_games_df = df[last5_games].tail(5)
+
+    # First ever match, give average placeholder points
+    if last5_games_df.empty:
+        return 90.0
+    
+    points = 0
+
+    for _, row in last5_games_df.iterrows():
+        if row['Home_Team'] == team:
+            points += row['Away_Points']
+        else:
+            points += row['Home_Points']
+
+    avg_points = points / len(last5_games_df)
+    return round(avg_points, 2)
+
+def calculate_indv_last5_avg_points_differential(df, team):
+    last5_games = ((df['Home_Team'] == team) | 
+                   (df['Away_Team'] == team))
+
+    last5_games_df = df[last5_games].tail(5)
+
+    # First ever match, give average placeholder points
+    if last5_games_df.empty:
+        return 0.0
+    
+    points_differential = 0
+
+    for _, row in last5_games_df.iterrows():
+        if row['Home_Team'] == team:
+            points_differential += row['Home_Points'] - row['Away_Points']
+        else:
+            points_differential += row['Away_Points'] - row['Home_Points']
+
+    avg_points_diff = points_differential / len(last5_games_df)
+    return round(avg_points_diff, 2)

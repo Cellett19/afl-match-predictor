@@ -17,15 +17,17 @@ This project is being developed as part of my software engineering portfolio whi
 
 ## Current Features
 
-### Feauture Engineering
+### Feature Engineering
 
-- Generate historical features for every match
-- Calculate features using only previous matches (no data leakage)
-- Home and away win percentages
-- Average points scored
-- Average points conceded
-- Average point differential
-- Export machine learning feature dataset
+- Historical home win percentage
+- Historical away win percentage
+- Historical average points scored
+- Historical average points conceded
+- Historical average point differential
+- Last 5 match win percentage
+- Last 5 match average points scored
+- Last 5 match average points conceded
+- Last 5 match average point differential
 
 ### Exploratory Data Analysis
 
@@ -80,7 +82,7 @@ afl-match-predictor/
 ├── docs/
 │   └── graphs/
 ├── notebooks/
-    ├── afl_analysis.ipynb
+│   ├── afl_analysis.ipynb
 ├── source/
 │   ├── stats.py
 │   ├── visualisation.py
@@ -147,9 +149,9 @@ afl-match-predictor/
     - Home & Away teams average points for
     - Home & Away teams average points against
     - Home & Away teams average points differentials
+    - Last 5 games feature engineering
 
 ### Next Version
-- Add recent form features
 - Train baseline machine learning models
 - Evaluate prediction accuracy
 

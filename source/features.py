@@ -23,6 +23,18 @@ def create_feature_df(df):
 
         home_team_avg_points_differential = calculate_indv_avg_pt_differential(history_df, home_team)
         away_team_avg_points_differential = calculate_indv_avg_pt_differential(history_df, away_team)
+        
+        home_last5_win_percentage = calculate_indv_last5_win_percentage(history_df, home_team)
+        away_last5_win_percentage = calculate_indv_last5_win_percentage(history_df, away_team)
+
+        home_last5_avg_points_for = calculate_indv_last5_avg_points_for(history_df, home_team)
+        away_last5_avg_points_for = calculate_indv_last5_avg_points_for(history_df, away_team)
+        
+        home_last5_avg_points_conceded = calculate_indv_last5_avg_points_conceded(history_df, home_team)
+        away_last5_avg_points_conceded = calculate_indv_last5_avg_points_conceded(history_df, away_team)
+
+        home_last5_avg_points_differential = calculate_indv_last5_avg_points_differential(history_df, home_team)
+        away_last5_avg_points_differential = calculate_indv_last5_avg_points_differential(history_df, away_team)
 
 
 
@@ -36,6 +48,14 @@ def create_feature_df(df):
                     'Away_Avg_Points_Conceded' : away_team_avg_points_conceded,
                     'Home_Avg_Points_Differential' : home_team_avg_points_differential,
                     'Away_Avg_Points_Differential' : away_team_avg_points_differential,
+                    'Home_Last5_Win_Percentage' : home_last5_win_percentage,
+                    'Away_Last5_Win_Percentage' : away_last5_win_percentage,
+                    'Home_Last5_Avg_Points_For' : home_last5_avg_points_for,
+                    'Away_Last5_Avg_Points_For' : away_team_avg_points_for,
+                    'Home_Last5_Avg_Points_Conceded' : home_team_avg_points_conceded,
+                    'Away_Last5_Avg_Points_Conceded' : away_team_avg_points_conceded,
+                    'Home_Last5_Avg_Points_Differential' : home_last5_avg_points_differential,
+                    'Away_Last5_Avg_Points_Differential' : away_last5_avg_points_differential,
                     'Winner' : row['Winner']
                     }
         rows.append(row_dict)
