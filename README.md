@@ -29,6 +29,8 @@ This project is being developed as part of my software engineering portfolio whi
 - Last 5 match average points conceded
 - Last 5 match average point differential
 
+All features are generated using only information available before each match, preventing data leakage and ensuring the model can be used for future match prediction.
+
 ### Exploratory Data Analysis
 
 - Calculate games played for every AFL team
@@ -60,6 +62,20 @@ This project is being developed as part of my software engineering portfolio whi
 - Average point differential
 ![Average Point Differential](docs/graphs/teams_average_points_differential_(2000-2023).png)
 
+## Current Model Performance
+
+Baseline Logistic Regression (2000–2023 dataset)
+
+| Metric | Result |
+|---------|-------:|
+| Accuracy | 67.1% |
+| Precision (Home) | 68% |
+| Recall (Home) | 82% |
+| Precision (Away) | 65% |
+| Recall (Away) | 47% |
+
+This baseline model was trained using engineered historical features generated only from matches that occurred before each prediction, preventing data leakage.
+
 ---
 
 ## Technologies Used
@@ -68,6 +84,7 @@ This project is being developed as part of my software engineering portfolio whi
 - Pandas
 - NumPy
 - Matplotlib
+- scikit-learn
 - Jupyter Notebook
 - Git
 - GitHub
@@ -79,28 +96,31 @@ This project is being developed as part of my software engineering portfolio whi
 afl-match-predictor/
 │
 ├── data/
+│   ├── raw/
+│   └── processed/
 ├── docs/
 │   └── graphs/
 ├── notebooks/
-│   ├── afl_analysis.ipynb
+│   └── afl_analysis.ipynb
 ├── source/
 │   ├── stats.py
+│   ├── features.py
 │   ├── visualisation.py
-│   └── features.py
+│   └── model.py
 ├── README.md
 
 ## Future Development
 
 ### Machine Learning
 
-- Expand feature engineering
-  - Average points scored
-  - Average points conceded
-  - Average point differential
-  - Recent team form
-  - Head-to-head statistics
-- Train baseline classification models
-- Evaluate model performance
+- Compare multiple machine learning models
+  - Logistic Regression
+  - Random Forest
+  - Gradient Boosting
+- Tune model hyperparameters
+- Evaluate using time-based validation
+- Analyse feature importance
+- Add additional predictive features
 - Optimise features and hyperparameters
 
 ### Application
@@ -151,9 +171,16 @@ afl-match-predictor/
     - Home & Away teams average points differentials
     - Last 5 games feature engineering
 
+### Version 1.0
+- Built baseline Logistic Regression model
+- Achieved 67.1% prediction accuracy
+- Added model evaluation using confusion matrix and classification report
+
 ### Next Version
-- Train baseline machine learning models
-- Evaluate prediction accuracy
+- Compare Logistic Regression with Random Forest
+- Implement time-based train/test split
+- Add head-to-head statistics
+- Add rolling team form features
 
 ---
 
