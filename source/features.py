@@ -38,7 +38,8 @@ def create_feature_df(df):
 
 
 
-        row_dict = {'Home_Team' : home_team,
+        row_dict = {'Season' : row['Season'],
+                    'Home_Team' : home_team,
                     'Away_Team' : away_team,
                     'Home_Win_Percentage' : home_win_percentage,
                     'Away_Win_Percentage' : away_win_percentage,

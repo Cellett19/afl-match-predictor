@@ -64,18 +64,42 @@ All features are generated using only information available before each match, p
 
 ## Current Model Performance
 
-Baseline Logistic Regression (2000–2023 dataset)
+### Logistic Regression
+
+The current baseline model uses a time-based train/test split:
+
+- Training data: 2000–2020
+- Testing data: 2021–2023
+- Model: Logistic Regression
+- Features: Historical team performance and recent form
 
 | Metric | Result |
 |---------|-------:|
-| Accuracy | 67.1% |
-| Precision (Home) | 68% |
-| Recall (Home) | 82% |
-| Precision (Away) | 65% |
-| Recall (Away) | 47% |
+| Accuracy | 65.37% |
+| Home Precision | 65% |
+| Home Recall | 84% |
+| Away Precision | 67% |
+| Away Recall | 41% |
+| Macro F1 | 0.62 |
 
-This baseline model was trained using engineered historical features generated only from matches that occurred before each prediction, preventing data leakage.
+The model currently performs better at identifying home wins than away wins, indicating a bias toward predicting the home team.
 
+### Random Forest
+
+A Random Forest model was also evaluated using the same training and testing data.
+
+| Model | Accuracy |
+|-------|---------:|
+| Accuracy | 62.20% |
+| Home Precision | 63% |
+| Home Recall | 81% |
+| Away Precision | 61% |
+| Away Recall | 38% |
+| Macro F1 | 0.59 |
+
+Logistic Regression currently performs better than Random Forest and is therefore the current baseline model.
+
+All evaluation uses a chronological train/test split rather than a random split. This better represents the real-world scenario of training on historical seasons and predicting future matches.
 ---
 
 ## Technologies Used
@@ -113,33 +137,33 @@ afl-match-predictor/
 
 ### Machine Learning
 
-- Compare multiple machine learning models
+- Analyse Logistic Regression feature coefficients
+- Add head-to-head statistics
+- Add rolling team form features
+- Add additional team performance features
+- Compare additional machine learning models
   - Logistic Regression
   - Random Forest
   - Gradient Boosting
 - Tune model hyperparameters
-- Evaluate using time-based validation
-- Analyse feature importance
-- Add additional predictive features
-- Optimise features and hyperparameters
+- Evaluate feature importance
+- Experiment with different feature combinations
+- Evaluate model performance using time-based validation
+
+### Data
+
+- Expand the historical dataset
+- Investigate automated AFL data collection
+- Build a data scraping pipeline
+- Automatically update the processed dataset with new matches
 
 ### Application
 
 - Build an interactive Streamlit dashboard
 - Predict match winners
 - Display prediction probabilities
+- Allow users to select upcoming matches
 - Simulate AFL seasons
-
----
-
-## Machine Learning Pipeline
-
-1. Load historical AFL data
-2. Perform exploratory data analysis
-3. Generate historical features using previous matches only
-4. Train prediction models
-5. Evaluate model performance
-6. Predict future AFL matches
 
 ---
 
@@ -154,10 +178,10 @@ afl-match-predictor/
 - Created visualisations for team statistics
 
 ### Version 0.3
-- Refactor notebook into reusable functions
+- Refactored notebook analysis into reusable functions
 
 ### Version 0.4
-- Move code into Python modules in VScode
+- Moved analysis code into Python modules
 
 ### Version 0.5
 - Built initial feature engineering pipeline
@@ -165,22 +189,36 @@ afl-match-predictor/
 - Created first machine learning training dataset
 
 ### Version 0.6
-- Expanded feature engineering with
-    - Home & Away teams average points for
-    - Home & Away teams average points against
-    - Home & Away teams average points differentials
-    - Last 5 games feature engineering
+- Expanded feature engineering with:
+  - Home & away average points for
+  - Home & away average points conceded
+  - Home & away average point differential
+  - Last 5 match win percentage
+  - Last 5 average points for
+  - Last 5 average points conceded
+  - Last 5 average point differential
 
 ### Version 1.0
-- Built baseline Logistic Regression model
-- Achieved 67.1% prediction accuracy
-- Added model evaluation using confusion matrix and classification report
+- Built initial Logistic Regression prediction model
+- Created model evaluation pipeline
+- Added accuracy, confusion matrix and classification report
+- Created first machine learning release
 
-### Next Version
-- Compare Logistic Regression with Random Forest
-- Implement time-based train/test split
+### Version 1.1
+- Implemented chronological train/test split
+- Trained on 2000–2020 seasons
+- Tested on 2021–2023 seasons
+- Added feature scaling
+- Compared Logistic Regression against Random Forest
+- Logistic Regression achieved 65.37% accuracy
+- Random Forest achieved 62.20% accuracy
+
+### Next Steps
+- Analyse feature coefficients
 - Add head-to-head statistics
-- Add rolling team form features
+- Add additional rolling form features
+- Test further machine learning models
+- Improve model performance
 
 ---
 
